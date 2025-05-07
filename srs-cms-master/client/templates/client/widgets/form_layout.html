@@ -1,0 +1,13 @@
+{% for field in form %}
+    <div class="form-row">
+        <label for="{{ field.id_for_label }}" class="form-label">
+            {{ field.label }}:
+        </label>
+        <div class="form-input-wrapper">
+            {{ field }}
+            {% if field.errors %}
+                <p class="form-error">{{ field.errors }}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}

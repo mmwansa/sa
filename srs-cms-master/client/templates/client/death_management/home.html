@@ -1,0 +1,277 @@
+{% extends 'client/base.html' %}
+{% load query_utils %}
+{% block title %}Death Management{% endblock %}
+
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'client/css/death_management/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container mx-auto py-4">
+        <h1 class="text-2xl font-bold mb-5">Death Management</h1>
+
+        <div class="mb-4">
+            <form method="get" class="mb-4">
+                <div class="columns-sm">
+                    <!-- Province-->
+                    <div class="form-row">
+                        <label class="form-label w-20" for="province">Province:</label>
+                        <div class="form-input-wrapper">
+                            <select name="province" id="province" class="select select-bordered form-input"
+                                    onchange="this.form.submit()">
+                                {% if can_view_all_provinces %}
+                                    <option value="">All Provinces</option>
+                                {% endif %}
+                                {% for province in provinces %}
+                                    <option value="{{ province.id }}"
+                                            {% if selected_province and province.id == selected_province.id %}selected{% endif %}>
+                                        {{ province.name }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Start Date -->
+                    <div class="form-row">
+                        <label class="form-label w-32" for="start_date">Date of Death:</label>
+                        <div class="form-input-wrapper">
+                            <input type="date" name="start_date" id="start_date" class="form-input"
+                                   onchange="this.form.submit()"
+                                   value="{{ request.GET.start_date }}">
+                        </div>
+                    </div>
+
+                    <!-- End Date -->
+                    <div class="form-row">
+                        <label class="form-label w-10" for="end_date">to:</label>
+                        <div class="form-input-wrapper">
+                            <input type="date" name="end_date" id="end_date" class="form-input"
+                                   onchange="this.form.submit()"
+                                   value="{{ request.GET.end_date }}">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Search-->
+                <div class="py-4">
+                    <input type="text" name="q" id="q" class="form-input" placeholder="Search" value="{{ query }}">
+                </div>
+
+                <!-- Page Size-->
+                <div class="form-row">
+                    <label class="form-label w-32" for="paging_size">Results Count:</label>
+                    <div class="form-input-wrapper">
+                        <select name="paging_size" id="paging_size" class="select select-bordered form-input w-20"
+                                onchange="this.form.submit()">
+                            {% for paging_size_option in paging_sizes %}
+                                <option value="{{ paging_size_option }}"
+                                        {% if paging_size_option == paging_size %}selected{% endif %}>
+                                    {{ paging_size_option }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-sm btn-primary">Search</button>
+                <a href="{% url 'deaths_home' %}" class="btn btn-sm btn-secondary">Reset</a>
+            </form>
+        </div>
+
+        <!-- New Deaths -->
+        <h2 class="font-bold py-4">New Deaths
+            <span>({{ new_deaths_total }})</span>
+        </h2>
+        <div class="overflow-x-auto border-solid border-2">
+            <table class="table table-xs">
+                <thead>
+                <tr>
+                    <th class="text-wrap">Death ID</th>
+                    <th class="text-wrap">Work Area/District Name</th>
+                    <th class="text-wrap">Cluster/Worker Name</th>
+                    <th class="text-wrap">Name of Deceased</th>
+                    <th class="text-wrap">Date of Death</th>
+                    <th class="text-wrap">Household ID</th>
+                    <th class="text-wrap">Head of Household Name</th>
+                    <th class="text-wrap">Respondent Name</th>
+                    <th class="text-wrap">VA Date Requested by Family</th>
+                    <th class="text-wrap">Death Event Submission Date</th>
+                    <th class="text-wrap"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for death in new_deaths %}
+                    <tr>
+                        <td>{{ death.death_code }}</td>
+                        <!-- TODO: which area property to show here? -->
+                        <td>{{ death.event.area.code }} / {{ death.event.area.adm4_name }} </td>
+                        <td>{{ death.event.cluster.code }} / {{ death.event.event_staff.full_name }}</td>
+                        <td>{{ death.deceased_name }}</td>
+                        <td>{{ death.deceased_dod }}</td>
+                        <td>{{ death.event.household_code }}</td>
+                        <td>{{ death.event.household_head_name }}</td>
+                        <td>{{ death.event.respondent_name }}</td>
+                        <td>{{ death.va_proposed_date }}</td>
+                        <td>{{ death.event.submission_date }}</td>
+                        <td>
+                            {% if can_schedule_va %}
+                                <a href="{% url 'deaths_edit' id=death.id %}" class="btn btn-ghost btn-xs">Schedule
+                                    VA</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- New Deaths Pagination -->
+        <div class="flex justify-center space-x-2 mt-4">
+            {% if new_deaths %}
+                <div class="join">
+                    <a class="join-item btn btn-sm {% if not new_deaths.has_previous %}btn-disabled{% endif %}"
+                       href="{% if new_deaths.has_previous %}?{% transform_query new_deaths_page=new_deaths.previous_page_number %} {% endif %}">Previous</a>
+                    {% for page_number in new_deaths_paginator.page_range %}
+                        {% if page_number == new_deaths.number %}
+                            <href class="join-item btn btn-sm btn-active">{{ page_number }}</href>
+                        {% elif page_number > new_deaths.number|add:-3 and page_number < new_deaths.number|add:3 %}
+                            <a class="join-item btn btn-sm"
+                               href="?{% transform_query new_deaths_page=page_number %}">{{ page_number }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    <a class="join-item btn btn-sm {% if not new_deaths.has_next %}btn-disabled{% endif %}"
+                       href="{% if new_deaths.has_next %}?{% transform_query new_deaths_page=new_deaths.next_page_number %}{% endif %}">Next</a>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- VA Scheduled Deaths -->
+        <h2 class="font-bold py-4">VA Scheduled Deaths
+            <span>({{ scheduled_deaths_total }})</span>
+        </h2>
+        <div class="overflow-x-auto border-solid border-2">
+            <table class="table table-xs">
+                <thead>
+                <tr>
+                    <th class="text-wrap">Death ID</th>
+                    <th class="text-wrap">Work Area/District Name</th>
+                    <th class="text-wrap">Cluster/Worker Name</th>
+                    <th class="text-wrap">Name of Deceased</th>
+                    <th class="text-wrap">Date of Death</th>
+                    <th class="text-wrap">Household ID</th>
+                    <th class="text-wrap">Head of Household Name</th>
+                    <th class="text-wrap">Respondent Name</th>
+                    <th class="text-wrap">VA Date Requested by Family</th>
+                    <th class="text-wrap">Death Event Submission Date</th>
+                    <th class="text-wrap"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for death in scheduled_deaths %}
+                    <tr>
+                        <td>{{ death.death_code }}</td>
+                        <!-- TODO: which area property to show here? -->
+                        <td>{{ death.event.area.code }} / {{ death.event.area.adm4_name }} </td>
+                        <td>{{ death.event.cluster.code }} / {{ death.event.event_staff.full_name }}</td>
+                        <td>{{ death.deceased_name }}</td>
+                        <td>{{ death.deceased_dod }}</td>
+                        <td>{{ death.event.household_code }}</td>
+                        <td>{{ death.event.household_head_name }}</td>
+                        <td>{{ death.event.respondent_name }}</td>
+                        <td>{{ death.va_proposed_date }}</td>
+                        <td>{{ death.event.submission_date }}</td>
+                        <td>
+                            {% if can_schedule_va %}
+                                <a href="{% url 'deaths_edit' id=death.id %}" class="btn btn-ghost btn-xs">Edit</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- VA Scheduled Deaths Pagination -->
+        <div class="flex justify-center space-x-2 mt-4">
+            {% if scheduled_deaths %}
+                <div class="join">
+                    <a class="join-item btn btn-sm {% if not scheduled_deaths.has_previous %}btn-disabled{% endif %}"
+                       href="{% if scheduled_deaths.has_previous %}?{% transform_query scheduled_deaths_page=scheduled_deaths.previous_page_number %} {% endif %}">Previous</a>
+                    {% for page_number in scheduled_deaths_paginator.page_range %}
+                        {% if page_number == scheduled_deaths.number %}
+                            <href class="join-item btn btn-sm btn-active">{{ page_number }}</href>
+                        {% elif page_number > scheduled_deaths.number|add:-3 and page_number < scheduled_deaths.number|add:3 %}
+                            <a class="join-item btn btn-sm"
+                               href="?{% transform_query scheduled_deaths_page=page_number %}">{{ page_number }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    <a class="join-item btn btn-sm {% if not scheduled_deaths.has_next %}btn-disabled{% endif %}"
+                       href="{% if scheduled_deaths.has_next %}?{% transform_query scheduled_deaths_page=scheduled_deaths.next_page_number %}{% endif %}">Next</a>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Completed Deaths -->
+        <h2 class="font-bold py-4">Completed Deaths
+            <span class="">({{ completed_deaths_total }})</span>
+        </h2>
+        <div class="overflow-x-auto border-solid border-2">
+            <table class="table table-xs">
+                <thead>
+                <tr>
+                    <th class="text-wrap">Death ID</th>
+                    <th class="text-wrap">Work Area/District Name</th>
+                    <th class="text-wrap">Cluster/Worker Name</th>
+                    <th class="text-wrap">Name of Deceased</th>
+                    <th class="text-wrap">Date of Death</th>
+                    <th class="text-wrap">Household ID</th>
+                    <th class="text-wrap">VA Interviewer Name</th>
+                    <th class="text-wrap">VA Date</th>
+                    <th class="text-wrap">VA Submitted Date</th>
+                    <th class="text-wrap"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for death in completed_deaths %}
+                    <tr>
+                        <td>{{ death.death_code }}</td>
+                        <!-- TODO: which area property to show here? -->
+                        <td>{{ death.event.area.code }} / {{ death.event.area.adm4_name }} </td>
+                        <td>{{ death.event.cluster.code }} / {{ death.event.event_staff.full_name }}</td>
+                        <td>{{ death.deceased_name }}</td>
+                        <td>{{ death.deceased_dod }}</td>
+                        <td>{{ death.event.household_code }}</td>
+                        <td>{{ death.va_staff.full_name }}</td>
+                        <td>{{ death.va_scheduled_date }}</td>
+                        <td>{{ death.va_completed_date }}</td>
+                        <td>
+                            {% if can_schedule_va %}
+                                <a href="{% url 'deaths_edit' id=death.id %}" class="btn btn-ghost btn-xs">View</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- Completed Deaths Pagination -->
+        <div class="flex justify-center space-x-2 mt-4">
+            {% if completed_deaths %}
+                <div class="join">
+                    <a class="join-item btn btn-sm {% if not completed_deaths.has_previous %}btn-disabled{% endif %}"
+                       href="{% if completed_deaths.has_previous %}?{% transform_query completed_deaths_page=completed_deaths.previous_page_number %} {% endif %}">Previous</a>
+                    {% for page_number in completed_deaths_paginator.page_range %}
+                        {% if page_number == completed_deaths.number %}
+                            <href class="join-item btn btn-sm btn-active">{{ page_number }}</href>
+                        {% elif page_number > completed_deaths.number|add:-3 and page_number < completed_deaths.number|add:3 %}
+                            <a class="join-item btn btn-sm"
+                               href="?{% transform_query completed_deaths_page=page_number %}">{{ page_number }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    <a class="join-item btn btn-sm {% if not completed_deaths.has_next %}btn-disabled{% endif %}"
+                       href="{% if completed_deaths.has_next %}?{% transform_query completed_deaths_page=completed_deaths.next_page_number %}{% endif %}">Next</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

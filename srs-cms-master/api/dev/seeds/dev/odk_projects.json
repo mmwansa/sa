@@ -1,0 +1,180 @@
+[
+  {
+    "name": "Test SRS-CMS",
+    "project_id": 6,
+    "is_enabled": true,
+    "odk_entity_lists": [
+      {
+        "name": "va_preload",
+        "is_enabled": true,
+        "odk_entity_list_exporters": [
+          {
+            "exporter": "VAPreloadExporter",
+            "is_enabled": true,
+            "etl_document": "VA Preload Export|1"
+          }
+        ]
+      }
+    ],
+    "odk_forms": [
+      {
+        "name": "Events",
+        "xml_form_id": "event_2024",
+        "version": "2024091201",
+        "is_enabled": true,
+        "odk_form_importers": [
+          {
+            "import_order": 1,
+            "importer": "EventsImporter",
+            "is_enabled": true,
+            "etl_document": "Events|2024091201"
+          },
+          {
+            "import_order": 2,
+            "importer": "DeathsImporter",
+            "is_enabled": true,
+            "etl_document": "Deaths|2024091201"
+          },
+          {
+            "import_order": 3,
+            "importer": "BabiesImporter",
+            "is_enabled": true,
+            "etl_document": "Babies|2024091201"
+          }
+        ]
+      },
+      {
+        "name": "Events",
+        "xml_form_id": "event_2024",
+        "version": "2024111601",
+        "is_enabled": true,
+        "odk_form_importers": [
+          {
+            "import_order": 1,
+            "importer": "EventsImporter",
+            "is_enabled": true,
+            "etl_document": "Events|2024111601"
+          },
+          {
+            "import_order": 2,
+            "importer": "DeathsImporter",
+            "is_enabled": true,
+            "etl_document": "Deaths|2024111601"
+          },
+          {
+            "import_order": 3,
+            "importer": "BabiesImporter",
+            "is_enabled": true,
+            "etl_document": "Babies|2024111601"
+          }
+        ]
+      },
+      {
+        "name": "Events",
+        "xml_form_id": "event_2024",
+        "version": "2025040103",
+        "is_enabled": true,
+        "odk_form_importers": [
+          {
+            "import_order": 1,
+            "importer": "EventsImporter",
+            "is_enabled": true,
+            "etl_document": "Events|2025040103"
+          },
+          {
+            "import_order": 2,
+            "importer": "DeathsImporter",
+            "is_enabled": true,
+            "etl_document": "Deaths|2025040103"
+          },
+          {
+            "import_order": 3,
+            "importer": "BabiesImporter",
+            "is_enabled": true,
+            "etl_document": "Babies|2025040103"
+          }
+        ]
+      },
+      {
+        "name": "Events",
+        "xml_form_id": "event_2024",
+        "version": "2025040104",
+        "is_enabled": true,
+        "odk_form_importers": [
+          {
+            "import_order": 1,
+            "importer": "EventsImporter",
+            "is_enabled": true,
+            "etl_document": "Events|2025040104"
+          },
+          {
+            "import_order": 2,
+            "importer": "DeathsImporter",
+            "is_enabled": true,
+            "etl_document": "Deaths|2025040104"
+          },
+          {
+            "import_order": 3,
+            "importer": "BabiesImporter",
+            "is_enabled": true,
+            "etl_document": "Babies|2025040104"
+          }
+        ]
+      },
+      {
+        "name": "Households",
+        "xml_form_id": "household_2024",
+        "version": "2024111601",
+        "is_enabled": true,
+        "odk_form_importers": [
+          {
+            "import_order": 1,
+            "importer": "HouseholdsImporter",
+            "is_enabled": true,
+            "etl_document": "Households|2024111601"
+          },
+          {
+            "import_order": 2,
+            "importer": "HouseholdMembersImporter",
+            "is_enabled": true,
+            "etl_document": "Household Members|2024111601"
+          }
+        ]
+      },
+      {
+        "name": "Households",
+        "xml_form_id": "household_2024",
+        "version": "2024112401",
+        "is_enabled": true,
+        "odk_form_importers": [
+          {
+            "import_order": 1,
+            "importer": "HouseholdsImporter",
+            "is_enabled": true,
+            "etl_document": "Households|2024112401"
+          },
+          {
+            "import_order": 2,
+            "importer": "HouseholdMembersImporter",
+            "is_enabled": true,
+            "etl_document": "Household Members|2024112401"
+          }
+        ]
+      },
+      {
+        "name": "Verbal Autopsies",
+        "xml_form_id": "va_2024",
+        "version": "2025011001",
+        "is_enabled": true,
+        "odk_form_importers": [
+          {
+            "import_order": 1,
+            "importer": "VerbalAutopsiesImporter",
+            "is_enabled": true,
+            "etl_document": "Verbal Autopsies|2025011001"
+          }
+        ]
+      }
+    ]
+  }
+]

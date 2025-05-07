@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Babies",
+    "version": "1",
+    "source_root": "grp_consent.baby_rep",
+    "mappings": [
+      {
+        "source_name": "__id",
+        "target_name": "key",
+        "target_type": "str",
+        "default": null,
+        "transform": {
+          "name": "replace",
+          "args": [
+            "uuid:",
+            ""
+          ],
+          "kwargs": null
+        },
+        "is_primary_key": true,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "baby_name",
+        "target_name": "name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "baby_sex",
+        "target_name": "sex",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "baby_wgt",
+        "target_name": "weight",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "baby_reg",
+        "target_name": "is_birth_registered",
+        "target_type": "bool",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      }
+    ]
+  }
+]

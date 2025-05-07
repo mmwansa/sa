@@ -1,0 +1,15 @@
+{% extends 'client/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'client/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container mx-auto mt-10 max-w-lg p-6 bg-white rounded shadow">
+        <h2 class="text-2xl font-bold mb-5 text-center">{{ user.username }}</h2>
+    </div>
+{% endblock %}
+

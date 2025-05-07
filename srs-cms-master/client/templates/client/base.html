@@ -1,0 +1,26 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en" data-theme="emerald">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SRS-CMS{% endblock %}</title>
+    {% tailwind_css %}
+    <link rel="stylesheet" href="{% static 'client/css/base.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="flex flex-col min-h-screen">
+<header>
+    {% include 'client/header.html' %}
+</header>
+<main class="flex-grow">
+    <div class="md:container md:mx-auto">
+        {% block content %}{% endblock %}
+    </div>
+</main>
+<footer>
+    {% include 'client/footer.html' %}
+</footer>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

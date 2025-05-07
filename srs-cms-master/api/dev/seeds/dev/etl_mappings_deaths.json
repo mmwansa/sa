@@ -1,0 +1,458 @@
+[
+  {
+    "name": "Deaths",
+    "version": "2024091201",
+    "source_root": null,
+    "mappings": [
+      {
+        "source_name": "__id",
+        "target_name": "key",
+        "target_type": "str",
+        "default": null,
+        "transform": {
+          "name": "replace",
+          "args": [
+            "uuid:",
+            ""
+          ],
+          "kwargs": null
+        },
+        "is_primary_key": true,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.event_type",
+        "target_name": "death_type",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.va_prop_date",
+        "target_name": "va_proposed_date",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_person_name",
+        "target_name": "deceased_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_best_dob_date",
+        "target_name": "deceased_dob",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.death_date",
+        "target_name": "deceased_dod",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_age_in_days",
+        "target_name": "deceased_age",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_sex",
+        "target_name": "deceased_sex",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_mother_name",
+        "target_name": "deceased_mother_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_father_name",
+        "target_name": "deceased_father_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      }
+    ]
+  },
+  {
+    "name": "Deaths",
+    "version": "2024111601",
+    "source_root": null,
+    "mappings": [
+      {
+        "source_name": "__id",
+        "target_name": "key",
+        "target_type": "str",
+        "default": null,
+        "transform": {
+          "name": "replace",
+          "args": [
+            "uuid:",
+            ""
+          ],
+          "kwargs": null
+        },
+        "is_primary_key": true,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.event_type",
+        "target_name": "death_type",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.va_prop_date",
+        "target_name": "va_proposed_date",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_person_name",
+        "target_name": "deceased_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_best_dob_date",
+        "target_name": "deceased_dob",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.death_date",
+        "target_name": "deceased_dod",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_age_in_days",
+        "target_name": "deceased_age",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_sex",
+        "target_name": "deceased_sex",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_mother_name",
+        "target_name": "deceased_mother_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_father_name",
+        "target_name": "deceased_father_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      }
+    ]
+  },
+  {
+    "name": "Deaths",
+    "version": "2025040103",
+    "source_root": null,
+    "mappings": [
+      {
+        "source_name": "__id",
+        "target_name": "key",
+        "target_type": "str",
+        "default": null,
+        "transform": {
+          "name": "replace",
+          "args": [
+            "uuid:",
+            ""
+          ],
+          "kwargs": null
+        },
+        "is_primary_key": true,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.event_type",
+        "target_name": "death_type",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.va_prop_date",
+        "target_name": "va_proposed_date",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_person_name",
+        "target_name": "deceased_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_best_dob_date",
+        "target_name": "deceased_dob",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.death_date",
+        "target_name": "deceased_dod",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_age_in_days",
+        "target_name": "deceased_age",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_sex",
+        "target_name": "deceased_sex",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_mother_name",
+        "target_name": "deceased_mother_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_father_name",
+        "target_name": "deceased_father_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      }
+    ]
+  },
+  {
+    "name": "Deaths",
+    "version": "2025040104",
+    "source_root": null,
+    "mappings": [
+      {
+        "source_name": "__id",
+        "target_name": "key",
+        "target_type": "str",
+        "default": null,
+        "transform": {
+          "name": "replace",
+          "args": [
+            "uuid:",
+            ""
+          ],
+          "kwargs": null
+        },
+        "is_primary_key": true,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.event_type",
+        "target_name": "death_type",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.va_prop_date",
+        "target_name": "va_proposed_date",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_person_name",
+        "target_name": "deceased_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_best_dob_date",
+        "target_name": "deceased_dob",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.death_date",
+        "target_name": "deceased_dod",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_age_in_days",
+        "target_name": "deceased_age",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_sex",
+        "target_name": "deceased_sex",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_mother_name",
+        "target_name": "deceased_mother_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.dec_father_name",
+        "target_name": "deceased_father_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      }
+    ]
+  }
+]

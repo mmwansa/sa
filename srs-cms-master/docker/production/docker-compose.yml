@@ -1,0 +1,56 @@
+services:
+  srs-cms-db:
+    image: postgres:16
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - env
+    environment:
+      POSTGRES_DB: ${DB_NAME:?DB_NAME not set}
+      POSTGRES_USER: ${DB_USER:?DB_USER not set}
+      POSTGRES_PASSWORD: ${DB_PASS:?DB_PASS not set}
+      PGPORT: ${DB_PORT:?DB_PORT not set}
+    ports:
+      - ${DB_PORT}
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready --username=${DB_USER} --dbname=${DB_NAME}" ]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+
+  srs-cms-web:
+    build:
+      context: ../../
+      dockerfile: docker/Dockerfile
+      args:
+        DOCKER_ENV_PATH: docker/production
+    env_file:
+      - env
+    depends_on:
+      srs-cms-db:
+        condition: service_healthy
+        restart: true
+    volumes:
+      - static_volume:/app/static
+      - media_volume:/app/media
+      - app_data:/app
+
+  srs-cms-nginx:
+    image: nginx:latest
+    restart: always
+    ports:
+      - "${NGINX_PORT}:80"
+    depends_on:
+      - srs-cms-web
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - static_volume:/app/static
+      - media_volume:/app/media
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
+  app_data:

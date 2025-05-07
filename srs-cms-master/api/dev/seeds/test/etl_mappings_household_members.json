@@ -1,0 +1,76 @@
+[
+  {
+    "name": "Household Members",
+    "version": "1",
+    "source_root": "rep_member",
+    "mappings": [
+      {
+        "source_name": "__id",
+        "target_name": "key",
+        "target_type": "str",
+        "default": null,
+        "transform": {
+          "name": "replace",
+          "args": [
+            "uuid:",
+            ""
+          ],
+          "kwargs": null
+        },
+        "is_primary_key": true,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "full_name",
+        "target_name": "full_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "mem_type",
+        "target_name": "member_type",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "sex",
+        "target_name": "sex",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "age_in_years",
+        "target_name": "age_in_years",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "rel_head",
+        "target_name": "rel_head",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      }
+    ]
+  }
+]

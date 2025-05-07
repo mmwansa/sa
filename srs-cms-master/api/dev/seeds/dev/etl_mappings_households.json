@@ -1,0 +1,978 @@
+[
+  {
+    "name": "Households",
+    "version": "2024111601",
+    "source_root": null,
+    "mappings": [
+      {
+        "source_name": "__id",
+        "target_name": "key",
+        "target_type": "str",
+        "default": null,
+        "transform": {
+          "name": "replace",
+          "args": [
+            "uuid:",
+            ""
+          ],
+          "kwargs": null
+        },
+        "is_primary_key": true,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "meta.instanceID",
+        "target_name": "instance_code",
+        "target_type": "str",
+        "default": null,
+        "transform": {
+          "name": "replace",
+          "args": [
+            "uuid:",
+            ""
+          ],
+          "kwargs": null
+        },
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "meta.instanceName",
+        "target_name": "instance_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.submitterId",
+        "target_name": "submitter_id",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.submitterName",
+        "target_name": "submitter_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.submissionDate",
+        "target_name": "submission_date",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.attachmentsPresent",
+        "target_name": "attachments_present",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.attachmentsExpected",
+        "target_name": "attachments_expected",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.reviewState",
+        "target_name": "review_state",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.deviceId",
+        "target_name": "device_code",
+        "target_type": "str",
+        "default": null,
+        "transform": {
+          "name": "replace",
+          "args": [
+            "collect:",
+            ""
+          ],
+          "kwargs": null
+        },
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.edits",
+        "target_name": "edits",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.formVersion",
+        "target_name": "form_version",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "start_datetime",
+        "target_name": "start_datetime",
+        "target_type": "datetime",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "end_datetime",
+        "target_name": "end_datetime",
+        "target_type": "datetime",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "today_date",
+        "target_name": "today_date",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_cluster.cluster_id",
+        "target_name": "cluster_code",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_area.area_id",
+        "target_name": "area_code",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_area.worker_id",
+        "target_name": "staff_code",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "interview_date",
+        "target_name": "interview_date",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "hh_id",
+        "target_name": "household_code",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "hh_address",
+        "target_name": "household_address",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "hh_head_name",
+        "target_name": "household_head_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "resp_name",
+        "target_name": "respondent_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.consent",
+        "target_name": "consent",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.head_phone_poss",
+        "target_name": "head_phone_cell",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.head_phone_allow",
+        "target_name": "head_phone_allow",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.head_phone",
+        "target_name": "head_phone",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.head_phone_conf",
+        "target_name": "head_phone_confirm",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.res_phone_poss",
+        "target_name": "res_phone_cell",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.res_phone_allow",
+        "target_name": "res_phone_allow",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.res_phone",
+        "target_name": "res_phone",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.res_phone_conf",
+        "target_name": "res_phone_confirm",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.any_phone_poss",
+        "target_name": "any_phone_cell",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.any_phone_allow",
+        "target_name": "any_phone_allow",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.any_phone_name",
+        "target_name": "any_phone_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.any_phone",
+        "target_name": "any_phone",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.any_phone_conf",
+        "target_name": "any_phone_confirm",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_member_ct.res_ct",
+        "target_name": "residence_count",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_member_ct.vis_ct",
+        "target_name": "visitor_count",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "rep_member_count",
+        "target_name": "rep_member_count",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "gps.coordinates[0]",
+        "target_name": "gps_latitude",
+        "target_type": "float",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": false
+      },
+      {
+        "source_name": "gps.coordinates[1]",
+        "target_name": "gps_longitude",
+        "target_type": "float",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": false
+      },
+      {
+        "source_name": "gps.coordinates[2]",
+        "target_name": "gps_altitude",
+        "target_type": "float",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": false
+      },
+      {
+        "source_name": "gps.properties.accuracy",
+        "target_name": "gps_accuracy",
+        "target_type": "float",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": false
+      },
+      {
+        "source_name": "TODO",
+        "target_name": "cms_status",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": false,
+        "is_required": true
+      },
+      {
+        "source_name": "TODO",
+        "target_name": "comment",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": false,
+        "is_required": true
+      }
+    ]
+  },
+  {
+    "name": "Households",
+    "version": "2024112401",
+    "source_root": null,
+    "mappings": [
+      {
+        "source_name": "__id",
+        "target_name": "key",
+        "target_type": "str",
+        "default": null,
+        "transform": {
+          "name": "replace",
+          "args": [
+            "uuid:",
+            ""
+          ],
+          "kwargs": null
+        },
+        "is_primary_key": true,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "meta.instanceID",
+        "target_name": "instance_code",
+        "target_type": "str",
+        "default": null,
+        "transform": {
+          "name": "replace",
+          "args": [
+            "uuid:",
+            ""
+          ],
+          "kwargs": null
+        },
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "meta.instanceName",
+        "target_name": "instance_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.submitterId",
+        "target_name": "submitter_id",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.submitterName",
+        "target_name": "submitter_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.submissionDate",
+        "target_name": "submission_date",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.attachmentsPresent",
+        "target_name": "attachments_present",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.attachmentsExpected",
+        "target_name": "attachments_expected",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.reviewState",
+        "target_name": "review_state",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.deviceId",
+        "target_name": "device_code",
+        "target_type": "str",
+        "default": null,
+        "transform": {
+          "name": "replace",
+          "args": [
+            "collect:",
+            ""
+          ],
+          "kwargs": null
+        },
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.edits",
+        "target_name": "edits",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "__system.formVersion",
+        "target_name": "form_version",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "start_datetime",
+        "target_name": "start_datetime",
+        "target_type": "datetime",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "end_datetime",
+        "target_name": "end_datetime",
+        "target_type": "datetime",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "today_date",
+        "target_name": "today_date",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_cluster.cluster_id",
+        "target_name": "cluster_code",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_area.area_id",
+        "target_name": "area_code",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_area.worker_id",
+        "target_name": "staff_code",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "interview_date",
+        "target_name": "interview_date",
+        "target_type": "date",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "hh_id",
+        "target_name": "household_code",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "hh_address",
+        "target_name": "household_address",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "hh_head_name",
+        "target_name": "household_head_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "resp_name",
+        "target_name": "respondent_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.consent",
+        "target_name": "consent",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.head_phone_poss",
+        "target_name": "head_phone_cell",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.head_phone_allow",
+        "target_name": "head_phone_allow",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.head_phone",
+        "target_name": "head_phone",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.head_phone_conf",
+        "target_name": "head_phone_confirm",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.res_phone_poss",
+        "target_name": "res_phone_cell",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.res_phone_allow",
+        "target_name": "res_phone_allow",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.res_phone",
+        "target_name": "res_phone",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.res_phone_conf",
+        "target_name": "res_phone_confirm",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.any_phone_poss",
+        "target_name": "any_phone_cell",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.any_phone_allow",
+        "target_name": "any_phone_allow",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.any_phone_name",
+        "target_name": "any_phone_name",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.any_phone",
+        "target_name": "any_phone",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_consent.grp_phone_cont.any_phone_conf",
+        "target_name": "any_phone_confirm",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_member_ct.res_ct",
+        "target_name": "residence_count",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "grp_member_ct.vis_ct",
+        "target_name": "visitor_count",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "rep_member_count",
+        "target_name": "rep_member_count",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "gps.coordinates[0]",
+        "target_name": "gps_latitude",
+        "target_type": "float",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": false
+      },
+      {
+        "source_name": "gps.coordinates[1]",
+        "target_name": "gps_longitude",
+        "target_type": "float",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": false
+      },
+      {
+        "source_name": "gps.coordinates[2]",
+        "target_name": "gps_altitude",
+        "target_type": "float",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": false
+      },
+      {
+        "source_name": "gps.properties.accuracy",
+        "target_name": "gps_accuracy",
+        "target_type": "float",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": false
+      },
+      {
+        "source_name": "TODO",
+        "target_name": "cms_status",
+        "target_type": "int",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": false,
+        "is_required": true
+      },
+      {
+        "source_name": "TODO",
+        "target_name": "comment",
+        "target_type": "str",
+        "default": null,
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": false,
+        "is_required": true
+      }
+    ]
+  }
+]

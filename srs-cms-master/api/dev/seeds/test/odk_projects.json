@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Test SRS-CMS",
+    "project_id": 1,
+    "is_enabled": true,
+    "odk_entity_lists": [
+      {
+        "name": "va_preload",
+        "is_enabled": true,
+        "odk_entity_list_exporters": [
+          {
+            "exporter": "VAPreloadExporter",
+            "is_enabled": true,
+            "etl_document": "VA Preload Export|1"
+          }
+        ]
+      }
+    ],
+    "odk_forms": [
+      {
+        "name": "Events",
+        "xml_form_id": "event_1",
+        "version": "1",
+        "is_enabled": true,
+        "odk_form_importers": [
+          {
+            "import_order": 1,
+            "importer": "EventsImporter",
+            "is_enabled": true,
+            "etl_document": "Events|1"
+          },
+          {
+            "import_order": 2,
+            "importer": "DeathsImporter",
+            "is_enabled": true,
+            "etl_document": "Deaths|1"
+          },
+          {
+            "import_order": 3,
+            "importer": "BabiesImporter",
+            "is_enabled": true,
+            "etl_document": "Babies|1"
+          }
+        ]
+      },
+      {
+        "name": "Households",
+        "xml_form_id": "household_1",
+        "version": "1",
+        "is_enabled": true,
+        "odk_form_importers": [
+          {
+            "import_order": 1,
+            "importer": "HouseholdsImporter",
+            "is_enabled": true,
+            "etl_document": "Households|1"
+          },
+          {
+            "import_order": 2,
+            "importer": "HouseholdMembersImporter",
+            "is_enabled": true,
+            "etl_document": "Household Members|1"
+          }
+        ]
+      },
+      {
+        "name": "Verbal Autopsies",
+        "xml_form_id": "va_1",
+        "version": "1",
+        "is_enabled": true,
+        "odk_form_importers": [
+          {
+            "import_order": 1,
+            "importer": "VerbalAutopsiesImporter",
+            "is_enabled": true,
+            "etl_document": "Verbal Autopsies|1"
+          }
+        ]
+      }
+    ]
+  }
+]

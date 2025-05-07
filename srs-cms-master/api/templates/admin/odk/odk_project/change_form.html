@@ -1,0 +1,16 @@
+{% extends "admin/change_form.html" %}
+{% load static %}
+
+{% block object-tools-items %}
+    {{ block.super }}
+    <li>
+        <a class="button"
+           href="{% url 'admin:odk_project_import_form_submissions' original.pk %}">
+            Import from ODK
+        </a>
+        <a class="button"
+           href="{% url 'admin:odk_project_export_entity_lists' original.pk %}">
+            Export to ODK
+        </a>
+    </li>
+{% endblock %}

@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-ninja = "*"
+psycopg2-binary = "*"
+pyodk = "*"
+django-environ = "*"
+django-tailwind = { extras = ["reload"], version = "*" }
+python-dateutil = "*"
+
+[dev-packages]
+pytest-django = "*"
+pytest-cov = "*"
+pytest-mock = "*"
+factory_boy = "*"
+coverage = "*"
+coveralls = "*"
+faker = "*"
+
+[requires]
+python_version = "3.12"
+python_full_version = "3.12.5"

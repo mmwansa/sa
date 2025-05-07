@@ -1,0 +1,263 @@
+[
+  {
+    "name": "VA Preload Export",
+    "version": "1",
+    "source_root": null,
+    "mappings": [
+      {
+        "source_name": "event.cluster.province.code",
+        "target_name": "prov_code",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "death_code",
+        "target_name": "death_id",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": true,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "event.cluster.code",
+        "target_name": "cluster_id",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "event.area.code",
+        "target_name": "area_id",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "deceased_name",
+        "target_name": "ev_dec_name",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": true,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "event.event_staff.code",
+        "target_name": "ev_staff_id",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "event.submission_date",
+        "target_name": "ev_submitted_date",
+        "target_type": "date",
+        "default": "",
+        "transform": {
+          "name": "strftime",
+          "args": null,
+          "kwargs": {
+            "format": "%Y-%m-%d"
+          }
+        },
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "deceased_dob",
+        "target_name": "ev_dob",
+        "target_type": "date",
+        "default": "",
+        "transform": {
+          "name": "strftime",
+          "args": null,
+          "kwargs": {
+            "format": "%Y-%m-%d"
+          }
+        },
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "deceased_dod",
+        "target_name": "ev_dod",
+        "target_type": "date",
+        "default": "",
+        "transform": {
+          "name": "strftime",
+          "args": null,
+          "kwargs": {
+            "format": "%Y-%m-%d"
+          }
+        },
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "deceased_age",
+        "target_name": "ev_age",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "event.household_code",
+        "target_name": "household_id",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "event.respondent_name",
+        "target_name": "ev_resp_name",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "event.res_phone",
+        "target_name": "ev_resp_phone",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "event.head_phone",
+        "target_name": "ev_hoh_phone",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "event.any_phone",
+        "target_name": "ev_any_phone",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "va_scheduled_date",
+        "target_name": "sched_date",
+        "target_type": "date",
+        "default": "",
+        "transform": {
+          "name": "strftime",
+          "args": null,
+          "kwargs": {
+            "format": "%Y-%m-%d"
+          }
+        },
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "va_staff.code",
+        "target_name": "va_staff_id",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "event.key",
+        "target_name": "ev_key",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "deceased_sex",
+        "target_name": "ev_sex",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "get_deceased_sex_display()",
+        "target_name": "ev_sex_text",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "deceased_mother_name",
+        "target_name": "dec_parent1",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "deceased_father_name",
+        "target_name": "dec_parent2",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      },
+      {
+        "source_name": "event.formatted_gps_coordinates()",
+        "target_name": "geometry",
+        "target_type": "str",
+        "default": "",
+        "transform": null,
+        "is_primary_key": false,
+        "is_enabled": true,
+        "is_required": true
+      }
+    ]
+  }
+]
